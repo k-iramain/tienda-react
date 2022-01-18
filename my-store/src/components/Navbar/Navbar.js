@@ -1,6 +1,6 @@
 import { Component } from "react";
-import { MenuItems} from "./MenuItems"
-import {Button} from "../button"
+import { MenuItems} from "./MenuItems";
+import {Cartwidget} from "../cartWidget";
 import "./Navbar.css"
 
 class Navbar extends Component {
@@ -14,7 +14,7 @@ class Navbar extends Component {
     render() {
         return(
             <nav className="NavbarItems">
-                <h1 className="Navbar-logo">React<i className="fab fa-react"></i></h1>
+                <h1 className="Navbar-logo">veggies<i className="fab fa-react"></i></h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? "fas fa-time" : "fas fa-bars"}></i>
 
@@ -31,7 +31,7 @@ class Navbar extends Component {
                         )
                     })}                    
                 </ul>
-                <Button>Sing Up</Button>
+                <Cartwidget></Cartwidget>
             </nav>
         )
     }
