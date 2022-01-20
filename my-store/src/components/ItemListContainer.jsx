@@ -12,11 +12,11 @@ export const ItemListContainer = ({
     
 
     return (
-        <container>
+        <div>
             {greeting}
             {children}
             
-        </container>
+        </div>
     )
    
 }
