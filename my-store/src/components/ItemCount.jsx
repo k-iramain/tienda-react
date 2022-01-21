@@ -3,12 +3,12 @@ import "./button.css"
 
 
 
-const Producto = ({stock,})=>{
+export const ItemCount = ({stock, name})=>{
     const[itemsQty, setItemQty]= useState(1);
     
     return (
         <div>
-            <h2>Mi carrito</h2>
+            <h2>{name}</h2>
         
 
             <div style={{marginBotton: 10 }}>
@@ -22,4 +22,3 @@ const Producto = ({stock,})=>{
     )
 
 }
-export default Producto

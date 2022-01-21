@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import  ItemCount  from "./components/ItemCount";
-import './App.css';
+import {ItemList} from "./components/ItemList";
+import {Item} from "./components/Item";
 import { Cartwidget } from "./components/cartWidget";
 import {ItemListContainer} from "./components/ItemListContainer"
+import './App.css';
 
 
 function App() {
@@ -12,9 +14,7 @@ function App() {
     
     <div className="App">
       <Navbar/> 
-      <ItemListContainer greeting="Mis productos">
-         <ItemCount stock={10} />
-      </ItemListContainer>
+      <ItemListContainer greeting="Mis productos"></ItemListContainer>
      
     </div>
   );
