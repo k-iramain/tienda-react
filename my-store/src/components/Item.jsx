@@ -1,8 +1,11 @@
 import React from "react";
+import { ItemCount } from "./ItemCount";
 
-export const Item = () =>{
+export const Item = ({product}) =>{
     return(
-        <div></div>
+        <div>
+            <ItemCount stock={product.stock}/>
+        </div>
     )
 
 }   

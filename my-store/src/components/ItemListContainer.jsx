@@ -72,10 +72,10 @@ export const ItemListContainer = ({
     return (
         <div>
             {greeting}
-            {products.map((product) => (
-                <ItemList key={product.name} product={product}/>
+            
+                <ItemList  products={products}/>
                 
-            ))}
+            
             
         </div>
     )
