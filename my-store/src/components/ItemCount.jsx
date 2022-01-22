@@ -8,9 +8,6 @@ export const ItemCount = ({stock, name})=>{
     
     return (
         <div>
-            <h2>{name}</h2>
-        
-
             <div style={{marginBotton: 10 }}>
                 <button disabled={ itemsQty <= 1  } className="btn btn--primary" onClick={()=>setItemQty(itemsQty -1)}>-</button>
                    <span style={{margin: 10, fontSize: "3rem"}}>{itemsQty}</span>
