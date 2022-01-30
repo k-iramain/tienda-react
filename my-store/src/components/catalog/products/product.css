@@ -29,9 +29,6 @@
     font-weight: 700;
     line-height: 22px;
     margin-bottom: 16px;
-    &:before {
-      content: "₹ ";
-    }
   }
   .product-name,
   .product-price {

@@ -1,18 +1,21 @@
 import React from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Navbar from "./components/Navbar/Navbar";
-import { ItemListContainer } from "./components/catalog/products/itemListContainer";
 import './App.css';
+import { Home } from "./pages/home";
 
 
 function App() {
 
  return (
     
-    <div className="App">
-      <Navbar/> 
-      <ItemListContainer greeting="Mis productos"></ItemListContainer>
-     
-    </div>
+    <BrowserRouter>
+      <Navbar></Navbar>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+
   );
 
 }
