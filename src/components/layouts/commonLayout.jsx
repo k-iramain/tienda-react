@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 
-const CommonLayout = ({ children }) => {
+export const CommonLayout = ({ children }) => {
   return (
     <div className="container common-layout">
       <Header />
@@ -11,5 +11,3 @@ const CommonLayout = ({ children }) => {
     </div>
   );
 };
-
-export default CommonLayout;

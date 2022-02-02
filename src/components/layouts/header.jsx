@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { MenuItems} from "./MenuItems";
+import { menuItems} from "../../constants/commons";
 import {Cartwidget} from "../cartWidget";
 import "./Navbar.css"
 
@@ -20,7 +20,7 @@ class Header extends Component {
 
                 </div>
                 <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-                    {MenuItems.map((item, index) =>{
+                    {menuItems.map((item, index) =>{
                         return(
                             <li key={index}>
                                 <a className={item.cName} href={item.url}>
