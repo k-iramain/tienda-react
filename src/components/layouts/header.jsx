@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {Link, NavLink} from "react-router-dom"
 import { menuItems} from "../../constants/commons";
 import {Cartwidget} from "../cartWidget";
 import "./Navbar.css"
@@ -14,7 +15,10 @@ class Header extends Component {
     render() {
         return(
             <nav className="NavbarItems">
-                <h1 className="Navbar-logo">veggies<i className="fab fa-react"></i></h1>
+                <Link to={"/"}>
+                    <h1 className="Navbar-logo">veggies<i className="fab fa-react"></i></h1>
+                </Link>
+                
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? "fas fa-time" : "fas fa-bars"}></i>
 
