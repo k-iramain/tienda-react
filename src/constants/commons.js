@@ -1,4 +1,4 @@
-export const MenuItems = [
+export const menuItems = [
     {
         title :"Inicio"  ,
         URL : "#",
@@ -20,4 +20,19 @@ export const MenuItems = [
         cName : "nav-links"
     },
     
+]
+
+export const categoriesItems = [
+    {
+        "id": 1,
+        "name": "Vegetales"
+    },
+    {
+        "id": 2,
+        "name": "Frutas"
+    },
+    {
+        "id": 3,
+        "name": "Frutos secos"
+    }
 ]
