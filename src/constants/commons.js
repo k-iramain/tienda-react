@@ -25,14 +25,17 @@ export const menuItems = [
 export const categoriesItems = [
     {
         "id": 1,
-        "name": "Vegetales"
+        "name": "Vegetales",
+        "slug": "vegetales"
     },
     {
         "id": 2,
-        "name": "Frutas"
+        "name": "Frutas",
+        "slug": "frutas"
     },
     {
         "id": 3,
-        "name": "Frutos secos"
+        "name": "frutos secos",
+        "slug": "frutos-secos"
     }
 ]
