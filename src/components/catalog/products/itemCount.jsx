@@ -14,10 +14,7 @@ export const ItemCount = ({stock, itemQuantity, setItemQuantity})=>{
                 <button disabled={ itemQuantity >= stock  } className="btn btn--primary" onClick={()=>setItemQuantity(itemQuantity +1)}>+</button>
                    
             </div >
-            <div>
-            <button  className="btn btn--primary" >Agregar al carrito</button> 
-            </div>
-
+           
         </div>
     )
 
