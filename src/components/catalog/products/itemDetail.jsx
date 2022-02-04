@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../assets/scss/components/products/_detail.css"
+import {ItemCount} from "../../catalog/products/itemCount"
 import "@fortawesome/react-fontawesome"
 
 
@@ -38,11 +39,7 @@ export const ItemDetail = ( {product}) => {
                 </div>
 
                 <div className = "purchase-info">
-                    <input type = "number" min = "0" value = "1"/>
-                    <button type = "button" className = "btn">
-                    Add to Cart <i className = "fas fa-shopping-cart"></i>
-                    </button>
-                    <button type = "button" className = "btn">Compare</button>
+                    <ItemCount/>
                 </div>
             </div>
         </div>
