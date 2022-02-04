@@ -1,7 +1,7 @@
 import { Component } from "react";
 import {Link, NavLink} from "react-router-dom"
-import { menuItems} from "../../constants/commons";
 import {Cartwidget} from "../cartWidget";
+import { categoriesItems } from "../../constants/commons"
 import "./Navbar.css"
 
 class Header extends Component {
@@ -24,14 +24,14 @@ class Header extends Component {
 
                 </div>
                 <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-                    {menuItems.map((item, index) =>{
+                    {categoriesItems.map((item, index) =>{
                         return(
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                {item.title}
-                                </a>
-                            
+                            <NavLink key={item.id}  className="nav-links" to={`/categories/${item.slug}`}>
+                                <li>
+                                    {item.name}
                             </li>
+                            </NavLink>
+                            
                         )
                     })}                    
                 </ul>
