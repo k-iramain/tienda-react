@@ -1,39 +1,43 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { ItemDetail } from "../products/itemDetail";
 import { productList } from "../../../constants/products"
 import "./products.css"
 
-const task = new Promise((resolve, reject) => {
-    setTimeout( () => {
-      if (productList.length > 0) {
-        console.log(productList)
-        let product = productList.filter(
-            (element) => {
-                return element.id == 1
-            }
-        )
-        if (product.length > 0) {
-            resolve(product[0])
-        } else {
+const taskFilterProduct = (itemId) => {
+  return new Promise((resolve, reject) => {
+        setTimeout( () => {
+          if (productList.length > 0) {
+            console.log(productList)
+            console.log(itemId)
+            let product = productList.filter(
+                (element) => {
+                    return element.id == itemId
+                }
+            )
+            console.log(product)
+            resolve(product)
+            
+            
+          } else {
             reject("En estos momentos no podemo procesar tu pedido")
-        }
-        
-      } else {
-        reject("En estos momentos no podemo procesar tu pedido")
-      }
-    }, 2000)
-  
-  })
+          }
+        }, 2000)
+      
+      })
+}
 
 
 export const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({})
+    const { id } = useParams()
+    const [productDetail, setProductDetail] = useState([])
 
     useEffect(() => {
         let mounted = true
-        task.then(result => {
-           setProduct(result)
+        taskFilterProduct(id).then(result => {
+            setProductDetail(result)
+            console.log(productDetail)
           }).then(result => {
             console.log(result)
           })
@@ -45,7 +49,10 @@ export const ItemDetailContainer = () => {
 
     return (
         <div className = "card-wrapper">
-            <ItemDetail product={product}></ItemDetail>
+          { productDetail.length > 0 &&
+              <ItemDetail product={productDetail[0]}></ItemDetail>
+          }
+          
         </div>
     )
    

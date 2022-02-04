@@ -4,7 +4,11 @@ export const productList = [
       "name": "Brocolli - 1 Kg",
       "price": 120,
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/broccoli.jpg",
-      "category": "vegetables",
+      "category": {
+        "id": 1,
+        "name": "Vegetales",
+        "slug": "vegetales"
+      },
       "stock": 20
     },
     {
@@ -12,7 +16,11 @@ export const productList = [
       "name": "Cauliflower - 1 Kg",
       "price": 60,
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cauliflower.jpg",
-      "category": "vegetables",
+      "category": {
+        "id": 1,
+        "name": "Vegetales",
+        "slug": "vegetales"
+      },
       "stock": 20
     },
     {
@@ -20,7 +28,11 @@ export const productList = [
       "name": "Cucumber - 1 Kg",
       "price": 48,
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/cucumber.jpg",
-      "category": "vegetables",
+      "category": {
+        "id": 1,
+        "name": "Vegetales",
+        "slug": "vegetales"
+      },
       "stock": 20
     },
     {
@@ -28,7 +40,11 @@ export const productList = [
       "name": "Beetroot - 1 Kg",
       "price": 32,
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/beetroot.jpg",
-      "category": "vegetables",
+      "category": {
+        "id": 1,
+        "name": "Vegetales",
+        "slug": "vegetales"
+      },
       "stock": 20
     },
     {
@@ -36,7 +52,11 @@ export const productList = [
       "name": "Carrot - 1 Kg",
       "price": 56,
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/carrots.jpg",
-      "category": "vegetables",
+      "category": {
+        "id": 1,
+        "name": "Vegetales",
+        "slug": "vegetales"
+      },
       "stock": 20
     }
   ]
