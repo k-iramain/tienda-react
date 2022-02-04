@@ -1,11 +1,12 @@
 import React from "react";
+import {useState} from "react"
 import "../../../assets/scss/components/products/_detail.css"
 import {ItemCount} from "../../catalog/products/itemCount"
 import "@fortawesome/react-fontawesome"
 
 
 export const ItemDetail = ( {product}) => {
-    
+    const [itemQuantity, setItemQuantity] = useState(0)
     return (
         <div className="card">
             <div className = "product-imgs">
@@ -33,13 +34,13 @@ export const ItemDetail = ( {product}) => {
                     <h2>about this item: </h2>
                     <p>{product.description}</p>
                     <ul>
-                    <li>Available: <span>in stock</span></li>
+                    <li>Available: <span>{product.stock}</span></li>
                     <li>Category: <span>{product.category.name}</span></li>
                     </ul>
                 </div>
 
                 <div className = "purchase-info">
-                    <ItemCount/>
+                    <ItemCount stock={product.stock} itemQuantity={itemQuantity} setItemQuantity={setItemQuantity}/>
                 </div>
             </div>
         </div>

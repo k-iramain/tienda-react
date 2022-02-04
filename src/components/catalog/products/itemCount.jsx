@@ -3,17 +3,20 @@ import "../../button.css"
 
 
 
-export const ItemCount = ({stock, name})=>{
-    const[itemsQty, setItemQty]= useState(1);
+export const ItemCount = ({stock, itemQuantity, setItemQuantity})=>{
+    
     
     return (
         <div>
             <div style={{marginBotton: 10 }}>
-                <button disabled={ itemsQty <= 1  } className="btn btn--primary" onClick={()=>setItemQty(itemsQty -1)}>-</button>
-                   <span style={{margin: 10, fontSize: "3rem"}}>{itemsQty}</span>
-                <button disabled={ itemsQty >= stock  } className="btn btn--primary" onClick={()=>setItemQty(itemsQty +1)}>+</button>
+                <button disabled={ itemQuantity <= 1  } className="btn btn--primary" onClick={()=>setItemQuantity(itemQuantity -1)}>-</button>
+                   <span style={{margin: 10, fontSize: "3rem"}}>{itemQuantity}</span>
+                <button disabled={ itemQuantity >= stock  } className="btn btn--primary" onClick={()=>setItemQuantity(itemQuantity +1)}>+</button>
                    
             </div >
+            <div>
+            <button  className="btn btn--primary" >Agregar al carrito</button> 
+            </div>
 
         </div>
     )
