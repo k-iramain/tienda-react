@@ -1,10 +1,13 @@
 import React from "react";
+import {useState} from "react"
+import {Link, NavLink} from "react-router-dom"
 import "../../../assets/scss/components/products/_detail.css"
+import {ItemCount} from "../../catalog/products/itemCount"
 import "@fortawesome/react-fontawesome"
 
 
 export const ItemDetail = ( {product}) => {
-    
+    const [itemQuantity, setItemQuantity] = useState(0)
     return (
         <div className="card">
             <div className = "product-imgs">
@@ -32,17 +35,20 @@ export const ItemDetail = ( {product}) => {
                     <h2>about this item: </h2>
                     <p>{product.description}</p>
                     <ul>
-                    <li>Available: <span>in stock</span></li>
+                    <li>Available: <span>{product.stock}</span></li>
                     <li>Category: <span>{product.category.name}</span></li>
                     </ul>
                 </div>
 
                 <div className = "purchase-info">
-                    <input type = "number" min = "0" value = "1"/>
-                    <button type = "button" className = "btn">
-                    Add to Cart <i className = "fas fa-shopping-cart"></i>
-                    </button>
-                    <button type = "button" className = "btn">Compare</button>
+                    <ItemCount stock={product.stock} itemQuantity={itemQuantity} setItemQuantity={setItemQuantity}/>
+                    <div>
+                        <Link to="/cart">
+                        <button  className="btn btn--primary" >Agregar al carrito</button> 
+                        </Link>
+                        
+                    </div>
+
                 </div>
             </div>
         </div>
