@@ -1,13 +1,16 @@
 import React from "react";
-import {useState} from "react"
+import {useContext, useState} from "react"
 import {Link, NavLink} from "react-router-dom"
 import "../../../assets/scss/components/products/_detail.css"
 import {ItemCount} from "../../catalog/products/itemCount"
+import { CartContext } from "../../contexts/cartContext";
 import "@fortawesome/react-fontawesome"
 
 
 export const ItemDetail = ( {product}) => {
     const [itemQuantity, setItemQuantity] = useState(0)
+    const {addItem} = useContext(CartContext)
+
     return (
         <div className="card">
             <div className = "product-imgs">
@@ -43,9 +46,9 @@ export const ItemDetail = ( {product}) => {
                 <div className = "purchase-info">
                     <ItemCount stock={product.stock} itemQuantity={itemQuantity} setItemQuantity={setItemQuantity}/>
                     <div>
-                        <Link to="/cart">
-                        <button  className="btn btn--primary" >Agregar al carrito</button> 
-                        </Link>
+                        
+                        <button onClick={()=>addItem(product, itemQuantity) } className="btn btn--primary" >Agregar al carrito</button> 
+                       
                         
                     </div>
 
