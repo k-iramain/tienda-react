@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import {CartContext} from "../../contexts/cartContext"
+import { CartPreview } from "../../cartWidget";
 
 
 
@@ -39,6 +40,7 @@ export const HeaderItemCart = () => {
               <span className="cart-count">{products.length}</span>
             
           </a>
+          <CartPreview isCartOpen="true"/>
         </div>
     )
 }

@@ -1,36 +1,47 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import "./button.css";
+import React, { useContext } from "react";
+import { CartContext } from "./contexts/cartContext";
 
-const STYLES = [
-    "btn--primary",
-    "btn--outline "
 
-]
-
-const SIZES = [
-    "btn--medium",
-    "btn--large"
-]
-
-export const Cartwidget = ({
-    children,
-    type,
-    onClick,
-    buttonStyle,
-    buttonSize
-}) => {
-    const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]
-
-    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
-
+export const CartPreview = ({isCartOpen}) => {
+    const {products, addItem, removeItem, clear, isInCart} = useContext(CartContext)
     return (
-        <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
-             <FontAwesomeIcon icon={faCartPlus} />
-            {children}
+        <div className={`cart-preview ${isCartOpen ? "active" : ""}`}>
+            <ul className="cart-items">
+                {products.map((product) => {
+                return (
+                    <li className="cart-item" key={product.name}>
+                    <img className="product-image" src={product.image} />
+                    <div className="product-info">
+                        <p className="product-name">{product.name}</p>
+                        <p className="product-price">{product.price}</p>
+                    </div>
+                    <div className="product-total">
+                        <p className="quantity">
+                        {`${product.quantity} ${
+                            product.quantity > 1 ? "Nos." : "No."
+                        }`}
+                        </p>
+                        <p className="amount">{product.quantity * product.price}</p>
+                    </div>
+                    <button
+                        className="product-remove"
+                    >
+                        ×
+                    </button>
+                    </li>
+                );
+                })}
+            </ul>
+            <div className="action-block">
+                <button
+                type="button"
+                className={`cart-preview ${products && products.length === 0 ? "disabled" : ""}`}
+                
+                >
+                PROCEED TO CHECKOUT
+                </button>
+            </div>
+        </div>
+    );
+};
 
-        </button>
-    )
-   
-}
