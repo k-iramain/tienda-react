@@ -4,6 +4,7 @@ import { CartContext } from "./contexts/cartContext";
 
 export const CartPreview = ({isCartOpen}) => {
     const {products, addItem, removeItem, clear, isInCart} = useContext(CartContext)
+    
     return (
         <div className={`cart-preview ${isCartOpen ? "active" : ""}`}>
             <ul className="cart-items">
@@ -18,13 +19,13 @@ export const CartPreview = ({isCartOpen}) => {
                     <div className="product-total">
                         <p className="quantity">
                         {`${product.quantity} ${
-                            product.quantity > 1 ? "Nos." : "No."
+                            product.quantity > 1 ? "unds." : "und."
                         }`}
                         </p>
                         <p className="amount">{product.quantity * product.price}</p>
                     </div>
                     <button
-                        className="product-remove"
+                        className="product-remove" onClick={()=>removeItem(product.id)}
                     >
                         ×
                     </button>
