@@ -1,7 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import {CartContext} from "../../contexts/cartContext"
+
 
 
 export const HeaderItemCart = () => {
+    const {products, addItem, removeItem, clear, isInCart} = useContext(CartContext)
 
     return (
         <div className="cart">
@@ -12,7 +16,7 @@ export const HeaderItemCart = () => {
                   <td>No. of items</td>
                   <td>:</td>
                   <td>
-                    <strong>0</strong>
+                    <strong>{products.length}</strong>
                   </td>
                 </tr>
                 <tr>
@@ -32,7 +36,7 @@ export const HeaderItemCart = () => {
               alt="Cart"
             />
             
-              <span className="cart-count">1</span>
+              <span className="cart-count">{products.length}</span>
             
           </a>
         </div>
