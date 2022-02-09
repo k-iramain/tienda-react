@@ -167,7 +167,7 @@
         color: lightgray;
         font-weight: 700;
         &:before {
-          content: "₹ ";
+          content: "$ ";
         }
       }
     }
@@ -183,7 +183,7 @@
         font-weight: 700;
         text-align: right;
         &:before {
-          content: "₹ ";
+          content: "$ ";
         }
       }
     }
