@@ -39,7 +39,7 @@ export const ItemDetail = ( {product}) => {
                     <p>{product.description}</p>
                     <ul>
                     <li>Available: <span>{product.stock}</span></li>
-                    <li>Category: <span>{product.category.name}</span></li>
+                    <li>Category: <span>{product.category}</span></li>
                     </ul>
                 </div>
 
