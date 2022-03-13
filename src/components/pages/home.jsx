@@ -3,6 +3,7 @@ import { CommonLayout } from "../layouts/commonLayout"
 import { ItemListContainer } from "../catalog/products/itemListContainer";
 
 
+
 export const Home = () =>{
     return(
        <CommonLayout>

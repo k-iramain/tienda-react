@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { ItemList } from "./itemList";
 import "./products.css"
+import {collection, getDocs } from "firebase/firestore"
+import {db} from "../../firebase"
+import { async } from "@firebase/util";
  
 
 
@@ -68,7 +71,7 @@ export const ItemListContainer = ({
 
 }) => {
     const [products, setProducts] = useState([])
-    
+   /* 
     useEffect(() => {
         let mounted = true
         task.then(result => {
@@ -83,6 +86,22 @@ export const ItemListContainer = ({
             
           })
         return () => mounted = false;
+      }, []);*/
+
+      useEffect(() => {
+        const getFromFirebase = async () => {
+
+          const query = collection(db, "item");
+          const snapshot = await getDocs(query);
+          let result = []
+          snapshot.forEach( doc => {
+            result.push({id: doc.id, ...doc.data()})
+          })
+          setProducts(result);
+        }
+
+        getFromFirebase()
+
       }, []);
 
     return (
@@ -95,3 +114,4 @@ export const ItemListContainer = ({
     )
    
 }
+
