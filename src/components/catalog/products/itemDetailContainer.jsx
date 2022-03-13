@@ -55,7 +55,7 @@ export const ItemDetailContainer = () => {
         const docRef = doc(db, "item", id)
         const docSnapshot = await getDoc(docRef);
 
-        let pd = [docSnapshot.data()]
+        let pd = [{id: docSnapshot.id, ...docSnapshot.data()}]
         console.log(pd)
         setProductDetail(pd)
         }
