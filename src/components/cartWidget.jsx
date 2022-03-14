@@ -1,10 +1,29 @@
 import React, { useContext } from "react";
 import { CartContext } from "./contexts/cartContext";
-
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { db } from "./firebase";
 
 export const CartPreview = ({isCartOpen}) => {
     const {products, addItem, removeItem, clear, isInCart} = useContext(CartContext)
     
+    const checkout = () => {
+        const itemsToBuy = products.map(item => {
+            return {
+                id: item.id,
+                name: item.name ?? "No NAme",
+                price: item.price,
+                qty: item.quantity
+            }
+        })
+        const order = { buyer: { email: "Test email" }, items: itemsToBuy, total: 1000}
+        addDoc(collection(db, "orders"), order)
+        .then(doc => {
+            alert("Orden completada con id", doc.id)
+        })
+        .catch(err => {
+            console.log(err);
+        })        
+    }
     return (
         <div className={`cart-preview ${isCartOpen ? "active" : ""}`}>
             <ul className="cart-items">
@@ -35,6 +54,7 @@ export const CartPreview = ({isCartOpen}) => {
             </ul>
             <div className="action-block">
                 <button
+                onClick={checkout}
                 type="button"
                 className={`cart-preview ${products && products.length === 0 ? "disabled" : ""}`}
                 
@@ -45,4 +65,3 @@ export const CartPreview = ({isCartOpen}) => {
         </div>
     );
 };
-
