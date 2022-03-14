@@ -6,6 +6,7 @@ import { CommonLayout } from "../layouts/commonLayout";
 
 
 export const Cart = () =>{
+    
     const {products} = useContext(CartContext)
     return(
         <CommonLayout>
